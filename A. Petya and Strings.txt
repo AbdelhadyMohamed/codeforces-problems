@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main() {
+	string first_string;
+	string second_string;
+	int res = 0;
+	cin >> first_string >> second_string;
+	for (int i = 0; i < first_string.length(); i++) {
+		if (tolower(first_string[i]) != tolower(second_string[i])) 
+		{
+			if (tolower(first_string[i]) > tolower(second_string[i]))
+			{
+				res = 1;
+				break;
+			}
+			if (tolower(first_string[i]) < tolower(second_string[i]))
+			{
+				res = -1;
+				break;
+			}
+		}
+
+	}
+	cout << res;
+}
