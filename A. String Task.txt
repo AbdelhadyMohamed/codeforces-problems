@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	string s;
+	cin >> s;
+	string v = "aoyeui";
+	for (int i = s.length() - 1; i >= 0; --i)
+	{
+		s[i] = tolower(s[i]);
+		for (int j = 0; j < 6; j++)
+		{
+			if (s[i] == v[j])
+			{
+				s.erase(i,1);
+			}
+
+		}
+
+			
+	}
+	for (int i = s.length() - 1; i >= 0; --i) {
+		s.insert(i, ".");
+
+	}
+
+	cout << s;
+}

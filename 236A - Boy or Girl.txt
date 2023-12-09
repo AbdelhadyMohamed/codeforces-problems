@@ -1,0 +1,32 @@
+#include <cstring>
+#include <iostream>
+using namespace std;
+int main()
+{
+	string s;
+	cin >> s;
+	bool e;
+	int l = s.length();
+
+	for (int i = 0; i < s.length(); i++)
+	{
+		e = false;
+		for (int j = i+1; j < s.length(); j++) 
+		{
+			if (s[i] == s[j] && e==false)
+			{
+				l--;
+				e = true;
+			}
+		}
+	}
+	if (l % 2 == 0)
+	{
+		cout << "CHAT WITH HER!";
+	}
+	else if(l%2!=0)
+	{
+		cout << "IGNORE HIM!";
+
+	}
+}
