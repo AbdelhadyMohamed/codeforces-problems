@@ -1,0 +1,82 @@
+#include <iostream>
+#include<stack>
+#include <map>
+
+using namespace std;
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--) {
+        stack<int>up, lo;
+        string s;
+        map<int, char> m;
+        cin >> s;
+        for (int i = 0; i < s.length(); i++)
+        {
+
+            if (s[i] == 'b')
+            {
+                if (!lo.empty())
+                {
+                    m[lo.top()] = '$';
+
+                    lo.pop();
+                }
+                continue;
+            }
+            else if (s[i] == 'B')
+            {
+                if (!up.empty())
+                {
+                    m[up.top()] = '$';
+                    up.pop();
+                }
+                continue;
+            }
+            m[i] = s[i];
+
+            if (isupper(s[i]))
+            {
+                up.push(i);
+            }
+            else if (islower(s[i]))
+            {
+                lo.push(i);
+            }
+        }
+        for (int i = 0; i < s.length(); i++)
+        {
+            if (m.count(i) && m[i] != '$')
+            {
+                cout << m[i];
+            }
+        }
+        cout << endl;
+
+    }
+ 
+}
+/*
+ map<int, char>::iterator it = m.begin();
+    while (it != m.end())
+    {
+        cout << "Key: " << it->first
+            << ", Value: " << it->second << endl;
+        ++it;
+    }
+*/
+
+/*
+while (!up.empty())
+    {
+        cout << up.top() << endl;
+        up.pop();
+    }
+    while (!lo.empty())
+    {
+        cout << lo.top() << endl;
+        lo.pop();
+
+    }
+*/
